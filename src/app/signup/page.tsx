@@ -39,8 +39,8 @@ export default function SignupPage() {
       }
 
       router.push('/chat');
-    } catch (error) {
-      setError('Something went wrong');
+    } catch (error:any) {
+      setError(error?.message);
       setLoading(false);
     }
   }

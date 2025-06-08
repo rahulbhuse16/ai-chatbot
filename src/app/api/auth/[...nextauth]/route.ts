@@ -48,10 +48,9 @@ export const handler = NextAuth({
   callbacks: {
     async session({ session, token }) {
       if (session.user && token.sub) {
-        //@ts-expect-error
-        session.user.id = token.sub;
-      }
-      return session;
+    (session.user as { id: string }).id = token.sub;
+  }
+  return session;
     },
     async jwt({ token, user }) {
       if (user) {

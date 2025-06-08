@@ -1,7 +1,6 @@
 // /app/api/auth/signup/route.ts (Next.js App Router)
 
 import { prisma } from "@/app/lib/prisma";
-import { hash } from "crypto";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
