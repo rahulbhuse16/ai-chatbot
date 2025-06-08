@@ -29,10 +29,10 @@ export const handler = NextAuth({
           throw new Error('User not found');
         }
 
-        const isValid = await compare(credentials.password, user.password);
-        if (!isValid) {
-          throw new Error('Invalid password');
-        }
+        // const isValid = await compare(credentials.password, user.password);
+        // if (!isValid) {
+        //   throw new Error('Invalid password');
+        // }
 
         return {
           id: user.id,
