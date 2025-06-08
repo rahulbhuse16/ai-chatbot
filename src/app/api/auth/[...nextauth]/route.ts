@@ -48,7 +48,7 @@ export const handler = NextAuth({
   callbacks: {
     async session({ session, token }) {
       if (session.user && token.sub) {
-        //@ts-ignore
+        //@ts-expect-error
         session.user.id = token.sub;
       }
       return session;

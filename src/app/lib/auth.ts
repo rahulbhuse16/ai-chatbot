@@ -29,5 +29,5 @@ export const authOptions = {
     signIn: '/login',
   },
 };
-//@ts-ignore
+//@ts-expect-error
 export default NextAuth(authOptions);
