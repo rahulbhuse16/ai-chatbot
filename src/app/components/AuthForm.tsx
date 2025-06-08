@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import './AuthForm.css';
 
 type AuthFormProps = {
   mode: 'login' | 'signup';
@@ -48,31 +49,32 @@ export default function AuthForm({ mode }: AuthFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-sm mx-auto space-y-4">
-      <h2 className="text-xl font-semibold">{mode === 'login' ? 'Login' : 'Sign Up'}</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="w-full border rounded px-4 py-2"
-        required
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className="w-full border rounded px-4 py-2"
-        required
-      />
-      <button
-        type="submit"
-        className="w-full bg-black text-white py-2 rounded"
-        disabled={loading}
-      >
-        {loading ? 'Please wait...' : mode === 'login' ? 'Login' : 'Sign Up'}
-      </button>
-    </form>
+    <div className="auth-wrapper">
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <h2 className="auth-title">{mode === 'login' ? 'Login' : 'Sign Up'}</h2>
+
+        <input
+          type="email"
+          value={email}
+          placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="auth-input"
+        />
+
+        <input
+          type="password"
+          value={password}
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          className="auth-input"
+        />
+
+        <button type="submit" disabled={loading} className="auth-button">
+          {loading ? 'Please wait...' : mode === 'login' ? 'Login' : 'Sign Up'}
+        </button>
+      </form>
+    </div>
   );
 }

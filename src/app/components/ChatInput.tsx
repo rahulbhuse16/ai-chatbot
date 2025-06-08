@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import './ChatInput.css';
 
 export default function ChatInput({ onSubmit }: { onSubmit: (prompt: string) => void }) {
   const [input, setInput] = useState('');
@@ -13,15 +14,15 @@ export default function ChatInput({ onSubmit }: { onSubmit: (prompt: string) => 
           setInput('');
         }
       }}
-      className="flex space-x-2 mt-4"
+      className="chat-input-form"
     >
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="flex-1 border p-2 rounded"
+        className="chat-input-field"
         placeholder="Describe the landing page you want..."
       />
-      <button type="submit" className="bg-black text-white px-4 py-2 rounded">
+      <button type="submit" className="chat-submit-button">
         Generate
       </button>
     </form>

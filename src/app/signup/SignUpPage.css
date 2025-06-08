@@ -1,0 +1,94 @@
+/* Container fills viewport and centers form */
+.signup-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form box styling */
+.signup-form {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease;
+}
+
+.signup-form:hover {
+  box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+}
+
+/* Heading */
+.signup-form h1 {
+  text-align: center;
+  margin-bottom: 28px;
+  color: #333;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+/* Labels */
+.signup-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Inputs */
+.signup-form input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 24px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  outline-offset: 2px;
+}
+
+.signup-form input:focus {
+  border-color: #6a5acd;
+  box-shadow: 0 0 8px rgba(106, 90, 205, 0.4);
+  outline: none;
+}
+
+/* Error message */
+.error-message {
+  color: #e74c3c;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Submit button */
+.signup-form button {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #6a5acd;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.signup-form button:hover:not(:disabled) {
+  background-color: #5a4abc;
+}
+
+.signup-form button:disabled {
+  background-color: #a29bfc;
+  cursor: not-allowed;
+}

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import './SignUpPage.css'
 
 export default function SignupPage() {
   const router = useRouter();
@@ -37,8 +38,7 @@ export default function SignupPage() {
         return;
       }
 
-      // On success, redirect to login page
-      router.push('/login');
+      router.push('/chat');
     } catch (error) {
       setError('Something went wrong');
       setLoading(false);
@@ -46,52 +46,43 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-md w-full bg-white p-8 rounded-md shadow"
-      >
-        <h1 className="text-2xl font-bold mb-6 text-center">Sign Up</h1>
+    <div className="signup-container">
+      <form onSubmit={handleSubmit} className="signup-form">
+        <h1>Sign Up</h1>
 
-        {error && (
-          <p className="text-red-600 mb-4 text-center">{error}</p>
-        )}
+        {error && <p className="error-message">{error}</p>}
 
-        <label className="block mb-2 font-semibold">Email</label>
+        <label htmlFor="email">Email</label>
         <input
+          id="email"
           type="email"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="you@example.com"
         />
 
-        <label className="block mb-2 font-semibold">Password</label>
+        <label htmlFor="password">Password</label>
         <input
+          id="password"
           type="password"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full border border-gray-300 rounded px-3 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Your password"
         />
 
-        <label className="block mb-2 font-semibold">Confirm Password</label>
+        <label htmlFor="confirmPassword">Confirm Password</label>
         <input
+          id="confirmPassword"
           type="password"
           required
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          className="w-full border border-gray-300 rounded px-3 py-2 mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Confirm your password"
         />
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded transition"
-        >
+        <button type="submit" disabled={loading}>
           {loading ? 'Signing up...' : 'Sign Up'}
         </button>
       </form>

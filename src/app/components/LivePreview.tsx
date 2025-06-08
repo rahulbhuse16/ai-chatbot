@@ -1,7 +1,13 @@
 'use client';
-import { useEffect, useRef } from 'react';
 
-export default function LivePreview({ code }: { code: string }) {
+import { useEffect, useRef } from 'react';
+import './LivePreview.css'; // Link the CSS file
+
+type LivePreviewProps = {
+  code: string;
+};
+
+export default function LivePreview({ code }: LivePreviewProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
@@ -15,5 +21,10 @@ export default function LivePreview({ code }: { code: string }) {
     }
   }, [code]);
 
-  return <iframe ref={iframeRef} className="w-full h-[500px] border rounded-xl" />;
+  return (
+    <div className="preview-container">
+      <div className="preview-header">Live Preview</div>
+      <iframe ref={iframeRef} className="preview-frame" title="Live Preview" />
+    </div>
+  );
 }
