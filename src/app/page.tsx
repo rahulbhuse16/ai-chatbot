@@ -5,11 +5,10 @@ import { handler } from './api/auth/[...nextauth]/route';
 
 export default async function HomePage() {
   const session = await getServerSession(handler);
-  redirect('/chat')
 
-  // if (session) {
-  //   redirect('/chat');
-  // } else {
-  //   redirect('/login');
-  // }
+  if (session) {
+    redirect('/chat');
+  } else {
+    redirect('/login');
+  }
 }
