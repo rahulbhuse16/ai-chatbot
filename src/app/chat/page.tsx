@@ -35,7 +35,7 @@ export default function ChatPage() {
       setHtmlCode(generatedCode);
     } catch (err) {
       console.error('Error fetching generated code:', err);
-      setError('Failed to generate code. Please try again.');
+      setError(err.message);
     } finally {
       setLoading(false);
     }
